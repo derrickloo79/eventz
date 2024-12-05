@@ -1,0 +1,14 @@
+<h1><%= pluralize(@categories.size, "Category")%></h1>
+
+<% @categories.each do |c|%>
+    <div style="padding: 12px 0">
+        <h3><%= link_to c.name, c%></h3>
+        <%= link_to "Edit", edit_category_path(c), class: "btn btn-outline-primary btn-sm" %>
+        <%= link_to "Delete", category_path(c), class: "btn btn-outline-danger btn-sm",
+                                data: { turbo_method: :delete, turbo_confirm: "Really?!" } %>
+    </div>
+<% end%>
+
+<section class="admin">
+    <%= link_to "Add New Category", new_category_path, class: "button" %>
+</section>

@@ -1,0 +1,5 @@
+<h1>Editing <%= @registration.user.name %>'s registration for <%= link_to @event.name, @event %></h1>
+
+<%= render "form", event: @event, registration: @registration %>
+
+<%= link_to "Cancel", event_registrations_path(@event), class: "btn btn-outline-primary", style: "width: 100%; max-width: 503px; margin-top: 8px" %>

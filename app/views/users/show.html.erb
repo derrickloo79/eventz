@@ -1,0 +1,38 @@
+<section style="padding-bottom: 20px">
+  <%= link_to "< Back", users_path, class: "btn btn-outline-secondary btn-sm" %>
+</section>
+
+<section class="user">
+    <%= profile_image(@user) %>
+    <h1> <%= @user.name%> </h1>
+    <h2> <%= mail_to(@user.email) %> </h2>
+    <h2><%= @user.username%> </h2>
+    
+    <% if current_user?(@user) %>
+      <div class="actions">
+        <%= link_to "Edit", edit_user_path(@user), class: "button edit" %>
+        <%= link_to "Delete", @user, class: "button delete",
+                data: { turbo_method: :delete, turbo_confirm: "Really?!" } %>
+      </div>
+    <% end %>
+
+    <% if @registrations.present? %>
+      <h3>My Registrations</h3>
+      <% @registrations.each do |r| %>
+        <div class="registration">
+          <div class="image"><%= link_to image_tag(r.event.image_file_name), r.event %></div>
+          <div class="name"><%= link_to r.event.name, r.event %></div>
+          <div class="date"><%= time_ago_in_words(r.created_at) %></div>
+        </div>
+      <% end %>
+    <% end %>
+
+    <% if @liked_events.present? %>
+        <h4>Liked events</h4>
+        <div class="liked-events">
+            <% @liked_events.each do |event| %>
+                <%= link_to image_tag(event.image_file_name), event %>
+            <% end %>
+        </div>
+    <% end %>
+</section>
