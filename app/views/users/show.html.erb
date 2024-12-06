@@ -20,7 +20,7 @@
       <h3>My Registrations</h3>
       <% @registrations.each do |r| %>
         <div class="registration">
-          <div class="image"><%= link_to image_tag(r.event.image_file_name), r.event %></div>
+          <div class="image"><%= link_to main_image(r.event), r.event %></div>
           <div class="name"><%= link_to r.event.name, r.event %></div>
           <div class="date"><%= time_ago_in_words(r.created_at) %></div>
         </div>
@@ -31,7 +31,7 @@
         <h4>Liked events</h4>
         <div class="liked-events">
             <% @liked_events.each do |event| %>
-                <%= link_to image_tag(event.image_file_name), event %>
+                <%= link_to main_image(event), event %>
             <% end %>
         </div>
     <% end %>
