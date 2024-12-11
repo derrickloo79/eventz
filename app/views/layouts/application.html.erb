@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
@@ -13,9 +14,12 @@
   <body>
     <%= render "layouts/header" %>
     
-    <div class="content">
-      <%= render "layouts/flash" %>
-      <%= yield %>
+    <%#div class="content"%>
+    <div class="grid grid-cols-8 gap-4">
+      <div class="col-start-2 col-span-6">
+        <%= render "layouts/flash" %>
+        <%= yield %>
+      </div>
     </div>
 
     <%= render "layouts/footer" %> 
