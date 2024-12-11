@@ -11,3 +11,24 @@
 }
 
 */
+.navBtn {
+  @apply px-3 py-2 no-underline rounded-full;
+
+  &.link {
+    @apply text-white ;
+  }
+  &.link:hover {
+    @apply text-white bg-white/20;
+  }
+  &.link:active {
+    @apply text-white bg-white/10;
+  }
+}
+
+
+/* Header */
+header {
+  nav {
+    
+  }
+}

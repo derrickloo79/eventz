@@ -1,20 +1,20 @@
-<header>
-    <nav>
+<header class="p-0 sticky top-0 z-20 sm:static">
+    <nav class="p-4 bg-blue-600 sm:p-6 flex flex-row justify-between items-center">
         <%= link_to image_tag("logo.png"), root_path %>
-        <ul class="left">
-            <li><%= link_to "Upcoming", events_path %></li>
-            <li><%= link_to "Past", filtered_events_path(:past) %></li>
-            <li><%= link_to "Free", filtered_events_path(:free) %></li>
-            <li><%= link_to "Recent", filtered_events_path(:recent) %></li>
+        <ul class="grow space-x-2">
+            <li><%= link_to "Upcoming", events_path, class: "navBtn link" %></li>
+            <li><%= link_to "Past", filtered_events_path(:past), class: "navBtn link" %></li>
+            <li><%= link_to "Free", filtered_events_path(:free), class: "navBtn link" %></li>
+            <li><%= link_to "Recent", filtered_events_path(:recent), class: "navBtn link" %></li>
         </ul>
-        <ul class="right">
+        <ul class="grow justify-end space-x-2">
             <% if current_user %>
-                <li><%= link_to current_user.name, current_user %></li>
-                <li><%= link_to "Sign Out", session_path, class: "button",
+                <li><%= link_to current_user.name, current_user, class: "navBtn link" %></li>
+                <li><%= link_to "Sign Out", session_path, class: "navBtn link",
                             data: { turbo_method: :delete } %></li>
             <% else %>
-                <li><%= link_to "Sign In", new_session_path, class: "button" %></li> 
-                <li><%= link_to "Sign Up", signup_path, class: "button" %></li> 
+                <li><%= link_to "Sign In", new_session_path, class: "navBtn link" %></li> 
+                <li><%= link_to "Sign Up", signup_path, class: "navBtn link" %></li> 
             <% end %>
         </ul>
     </nav>

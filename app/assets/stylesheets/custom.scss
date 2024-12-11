@@ -41,13 +41,13 @@ $input-bg: white;
   @extend .container;
 }
 
-a {
+/* a {
   text-decoration: none;
-}
+} */
 
-a:hover {
+/* a:hover {
   text-decoration: underline;
-}
+} */
 
 // Header and Nav
 
@@ -84,12 +84,12 @@ header {
         @extend .ms-auto;
       }
 
-      li {
+      /*li {
         @extend .nav-item;
         font-size: 1.1rem;
         margin-right: 5px;
 
-        a {
+         a {
           @extend .nav-link;
           color: $secondary-link-color;
           padding-bottom: 1px;
@@ -100,7 +100,7 @@ header {
           color: $off-white;
           text-decoration: none;
           border-bottom: 1px solid $off-white;
-        }
+        } 
 
         .button,
         button {
@@ -119,7 +119,7 @@ header {
         button {
           @extend .btn, .btn-outline-secondary;
         }
-      }
+      }*/
     }
   }
 
