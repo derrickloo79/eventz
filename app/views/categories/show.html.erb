@@ -7,7 +7,7 @@
 <div>
     <% @events.each do |event| %>
         <div style="padding-bottom: 40px">
-            <%= link_to image_tag(event.image_file_name), event %>
+            <%= link_to main_image(event), event %>
             <h3><%= event.name %></h3>
         </div>
     <% end %>

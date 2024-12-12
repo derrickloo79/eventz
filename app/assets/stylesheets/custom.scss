@@ -25,7 +25,7 @@ $sold-out-color: $yellow;
 // Bootstrap Variable Overrides
 
 $body-color: $black;
-$body-bg: $off-white;
+// $body-bg: $off-white;
 $primary: $blue;
 $secondary: $dark-gray;
 $min-contrast-ratio: 4;
@@ -52,9 +52,9 @@ $input-bg: white;
 // Header and Nav
 
 header {
-  background-color: $primary;
+  /* background-color: $primary;
   padding: 0.5rem;
-  margin-bottom: 3rem;
+  margin-bottom: 3rem; */
 
   nav {
     @extend .navbar, .navbar-expand-md;
@@ -154,16 +154,16 @@ section.event {
     @extend .col-md-9, .text-start;
   }
 
-  h2 {
+  /*h2 {
     font-size: 1.5rem;
     margin-bottom: 0.25rem;
-  }
+  } */
 
-  h3 {
+  /*h3 {
     font-size: 1.1rem;
     color: $secondary-text-color;
     font-weight: 400;
-  }
+  } */
 
   p {
     margin-top: 1.1rem;
@@ -375,14 +375,14 @@ ul.registrations {
 
 // Footer
 
-footer {
+/* footer {
   background: $black;
   color: $light-gray;
   text-align: center;
   margin-top: 3rem;
   padding-top: 2rem;
   padding-bottom: 2rem;
-}
+} */
 
 // Admin Section
 

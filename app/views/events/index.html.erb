@@ -1,18 +1,26 @@
 
 <% @events.each do | event | %>
-    <section class="event">
+    <section class="flex flex-col lg:flex-row space-y-6 lg:space-y-0 lg:space-x-8 pb-8 lg:pb-12 mb-8 lg:mb-12 border-b border-slate-300 nth-last-1:border-b-0">
         <div class="image">
             <%= main_image(event) %>
         </div>
-        <div class="summary">
-            <h2><%= link_to event.name, event %></h2>
-            <h3><%= date_and_time(event) %> in <%= event.location%></h3> 
-            <span class="price">
-                <%= price(event) %>
-            </span>
-            <p>
-                <%= truncate(event.description, length: 35, separator: ' ') %>
-            </p>
+        <div class="flex flex-col space-y-6 md:grow">
+            <div class="flex flex-col space-y-2 md:flex-row">
+                <div class="md:grow">
+                    <h2 class="m-0 py-1 lg:py-2 font-mono font-semibold tracking-tight text-2xl lg:text-3xl"><%= link_to event.name, event, class: "text-blue-600 hover:text-blue-600 underline-offset-2" %></h2>
+                    <h3 class="m-0 py-1 lg:py-2 font-mono font-medium tracking-tight text-lg lg:text-xl"><span class="text-slate-500"><%= date_and_time(event) %> in <%= event.location%></span></h3>
+                </div>
+                <div class="">
+                    <span class="p-2 flex-shrink bg-amber-500 text-white text-lg font-medium tracking-wide">
+                        <%= price(event) %>
+                    </span>
+                </div>
+            </div>
+            <div class="">
+                <p class="p-0 m-0 font-mono font-normal text-base">
+                    <%= truncate(event.description, length: 35, separator: ' ') %>
+                </p>
+            </div>
         </div>
     </section>
 <% end %>

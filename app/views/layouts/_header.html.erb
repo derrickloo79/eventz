@@ -1,21 +1,54 @@
-<header class="p-0 sticky top-0 z-20 sm:static">
-    <nav class="p-4 bg-blue-600 sm:p-6 flex flex-row justify-between items-center">
+<header class="p-0 sticky top-0 z-40 lg:static" data-controller="navbar" data-action="resize@window->navbar#closeOnBigScreen keyup@window->navbar#closeWithKeyboard">
+    <nav class="px-4 py-3 bg-blue-600 lg:p-6 flex flex-row justify-between items-center">
         <%= link_to image_tag("logo.png"), root_path %>
-        <ul class="grow space-x-2">
-            <li><%= link_to "Upcoming", events_path, class: "navBtn link" %></li>
-            <li><%= link_to "Past", filtered_events_path(:past), class: "navBtn link" %></li>
-            <li><%= link_to "Free", filtered_events_path(:free), class: "navBtn link" %></li>
-            <li><%= link_to "Recent", filtered_events_path(:recent), class: "navBtn link" %></li>
-        </ul>
-        <ul class="grow justify-end space-x-2">
-            <% if current_user %>
-                <li><%= link_to current_user.name, current_user, class: "navBtn link" %></li>
-                <li><%= link_to "Sign Out", session_path, class: "navBtn link",
-                            data: { turbo_method: :delete } %></li>
-            <% else %>
-                <li><%= link_to "Sign In", new_session_path, class: "navBtn link" %></li> 
-                <li><%= link_to "Sign Up", signup_path, class: "navBtn link" %></li> 
-            <% end %>
-        </ul>
+        <div class="max-lg:hidden grow">
+            <ul class="space-x-2">
+                <li><%= nav_link_to "Upcoming", events_path%></li>
+                <li><%= nav_link_to "Past", filtered_events_path(:past)%></li>
+                <li><%= nav_link_to "Free", filtered_events_path(:free)%></li>
+                <li><%= nav_link_to "Recent", filtered_events_path(:recent) %></li>
+            </ul>
+        </div>
+        <div class="max-lg:hidden grow">
+            <ul class="justify-end space-x-2">
+                <% if current_user %>
+                    <li><%= nav_link_to current_user.name, current_user %></li>
+                    <li><%= link_to "Sign Out", session_path, class: "buton outlined",
+                                data: { turbo_method: :delete } %></li>
+                <% else %>
+                    <li><%= link_to "Sign In", new_session_path, class: "buton outlined" %></li> 
+                    <li><%= link_to "Sign Up", signup_path, class: "buton pri" %></li> 
+                <% end %>
+            </ul>
+        </div>
+        <div class="lg:hidden text-2xl text-amber-50" role="button" data-action="click->navbar#toggle">
+            &#9776;
+        </div>
+    </nav>
+    
+    <nav class="hidden p-4 bg-blue-800 absolute w-full overflow-y-auto" data-navbar-target="content">
+        <div class="flex flex-col w-full divide-y divide-dashed divide-blue-600 space-y-2">
+            <div class="">
+                <ul class="flex flex-col">
+                    <li class="m-0"><%= mobile_nav_link_to "Upcoming", events_path%></li>
+                    <li class="m-0"><%= mobile_nav_link_to "Past", filtered_events_path(:past)%></li>
+                    <li class="m-0"><%= mobile_nav_link_to "Free", filtered_events_path(:free)%></li>
+                    <li class="m-0"><%= mobile_nav_link_to "Recent", filtered_events_path(:recent) %></li>
+                </ul>
+            </div>
+            <div class="pt-2">
+                <ul class="flex flex-col">
+                    <% if current_user %>
+                        <li><%= mobile_nav_link_to current_user.name, current_user %></li>
+                        <li><%= link_to "Sign Out", session_path, class: "navMobile",
+                                    data: { turbo_method: :delete } %></li>
+                    <% else %>
+                        <li><%= link_to "Sign In", new_session_path, class: "navMobile" %></li> 
+                        <li><%= link_to "Sign Up", signup_path, class: "navMobile" %></li> 
+                    <% end %>
+                </ul>
+            </div>
+            <%#= h-[calc(50vh-56px)] %>
+        </div>
     </nav>
 </header>

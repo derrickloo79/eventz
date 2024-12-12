@@ -9,7 +9,7 @@ module EventsHelper
     end
 
     def date_and_time(event)
-        event.starts_at.strftime("%B %d at %I:%M %P")
+        event.starts_at.strftime("%B %d, %y at %I:%M %P")
     end
 
     def main_image(event)
@@ -17,6 +17,21 @@ module EventsHelper
             image_tag event.main_image
         else
             image_tag "placeholder.png"
+        end
+    end
+
+    def nav_link_to(text, url)
+        if current_page?(url)
+            link_to(text, url, class: "navLink link active")
+        else
+            link_to(text, url, class: "navLink link")
+        end
+    end
+    def mobile_nav_link_to(text, url)
+        if current_page?(url)
+            link_to(text, url, class: "navMobile active")
+        else
+            link_to(text, url, class: "navMobile")
         end
     end
 end
