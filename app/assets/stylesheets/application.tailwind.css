@@ -263,6 +263,16 @@ section.eventListCard {
     }
   }
 }
+.likeAndCounter-desktop-only {
+  @apply flex-none mt-2 flex flex-row items-center;
+
+  .like {
+    @apply py-2 px-3 w-12 text-center rounded-tl rounded-bl border-t border-b border-l border-r border-slate-300 hover:bg-slate-300;
+  }
+  .counter {
+    @apply py-2 px-3 w-12 text-center rounded-tr rounded-br border-t border-b border-r border-slate-300;
+  }
+}
 
 /* Footer */
 footer {
