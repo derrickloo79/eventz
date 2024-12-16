@@ -168,7 +168,7 @@ section.eventListCard {
     @apply flex flex-col space-y-6 md:grow;
 
     .eventNameDatePrice {
-      @apply flex flex-col space-y-4;
+      @apply flex flex-col space-y-2;
 
       h3 span {
         @apply text-slate-600;
