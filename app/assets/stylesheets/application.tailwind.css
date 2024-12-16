@@ -16,7 +16,7 @@ h1  {
   @apply py-2 font-mono font-semibold text-4xl;
 }
 h2 {
-  @apply py-2 font-mono font-semibold text-lg lg:text-2xl;
+  @apply m-0 py-1 lg:py-2 font-mono font-semibold tracking-tight text-2xl lg:text-3xl;
   a {
     @apply no-underline;
   }
@@ -30,20 +30,46 @@ h3 {
 
 /* Buttons */
 .buton {
-  @apply font-mono font-medium px-3 py-2 no-underline rounded-full;
+  @apply font-mono font-medium text-center px-3 py-2 no-underline rounded-full;
 
   &.outlined {
-    @apply text-amber-50 border border-white;
+    @apply text-blue-600 border border-blue-600;
   }
   &.outlined:hover {
-    @apply text-blue-600 bg-amber-50;
+    @apply text-blue-600 bg-blue-50;
+  }
+
+  &.outlined-inverse {
+    @apply text-amber-50 border border-white;
+  }
+
+  &.outlined-inverse:hover {
+    @apply text-amber-50 border border-white;
+  }
+
+  &.outlined-danger {
+    @apply text-red-600 border border-red-600;
+  }
+  &.outlined-danger:hover {
+    @apply bg-red-50;
   }
 
   &.pri {
-    @apply text-blue-600 bg-white;
+    @apply text-white bg-blue-600;
   }
   &.pri:hover {
+    @apply bg-blue-700;
+  }
+
+  &.pri-inverse {
+    @apply text-blue-600 bg-white;
+  }
+  &.pri-inverse:hover {
     @apply text-blue-600 bg-blue-100;
+  }
+
+  &.wFull {
+    @apply w-full
   }
 }
 
@@ -85,6 +111,121 @@ header {
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
   @apply top-0 z-10;
+}
+
+/* Events Index Page */
+section.eventListCard {
+  @apply flex flex-col max-sm:space-y-8 md:flex-row md:space-x-12 items-start pb-8 lg:pb-12 mb-8 lg:mb-12 border-b border-slate-300;
+
+  &:nth-last-child(1) {
+    @apply border-b-0;
+  }
+  .eventLeft {
+    @apply flex-none sm:w-36 lg:w-60 flex flex-col space-y-8;
+  }
+  .eventRight {
+    @apply flex flex-col space-y-6 md:grow;
+
+    .eventNameDatePrice {
+      @apply flex flex-col space-y-4;
+    }
+
+    h1 {
+      @apply m-0 py-1 lg:py-2 font-mono font-semibold text-slate-800 tracking-tight text-3xl lg:text-4xl;
+    }
+
+    h2 {
+      @apply m-0 py-1 lg:py-2 font-mono font-semibold text-slate-800 tracking-tight text-2xl lg:text-3xl;
+
+      span {
+        @apply text-slate-600;
+      }
+
+      a {
+        @apply text-blue-600;
+      }
+      a.hover {
+        @apply text-blue-600 underline-offset-2;
+      }
+    }
+
+    h3 {
+      @apply m-0 py-1 lg:py-2 font-mono font-medium tracking-tight text-xl lg:text-2xl;
+
+      span {
+        @apply text-slate-800;
+      }
+    }
+    h4 {
+      span { @apply m-0 py-1 lg:py-2 font-mono text-lg; }
+    }
+    .eventLikes {
+
+
+      .eventCount {
+        @apply p-2;
+      }
+      button[type="submit"] {
+        @apply text-2xl border-slate-300;
+      }
+    }
+  }
+  .eventPrice span {
+    @apply p-2 flex-shrink bg-amber-500 text-white text-lg lg:text-xl font-medium tracking-wide;
+  }
+  .eventDescription p {
+    @apply p-0 m-0 font-mono font-normal text-base text-slate-600;
+  }
+  .eventActions {
+    
+
+    .register {
+      @apply max-sm:hidden;
+    }
+  }
+}
+
+/* Likes And Cats */
+.likesAndCats-mobile-only {
+  @apply md:hidden;
+  
+  h4 {
+    @apply font-mono font-medium text-sm uppercase text-slate-500 py-1 border-b border-slate-300;
+  }
+
+  ul {
+    list-style: none;
+    @apply p-0;
+
+    li {
+      @apply pb-1 font-mono font-medium text-base;
+
+      a {
+        @apply text-blue-600 underline-offset-2;
+      }
+    }
+  }
+}
+
+.likesAndCats-desktop-only {
+  @apply max-sm:hidden;
+
+  h4 {
+    @apply font-mono font-medium text-sm uppercase text-slate-500 py-1 border-b border-slate-300;
+  }
+
+  ul {
+    list-style: none;
+    @apply p-0;
+
+    li {
+      @apply pb-1 font-mono font-medium text-base;
+
+      a {
+        @apply text-blue-600 underline-offset-2;
+      }
+    }
+  }
 }
 
 /* Footer */

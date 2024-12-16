@@ -13,11 +13,11 @@
             <ul class="justify-end space-x-2">
                 <% if current_user %>
                     <li><%= nav_link_to current_user.name, current_user %></li>
-                    <li><%= link_to "Sign Out", session_path, class: "buton outlined",
+                    <li><%= link_to "Sign Out", session_path, class: "buton outlined-inverse",
                                 data: { turbo_method: :delete } %></li>
                 <% else %>
-                    <li><%= link_to "Sign In", new_session_path, class: "buton outlined" %></li> 
-                    <li><%= link_to "Sign Up", signup_path, class: "buton pri" %></li> 
+                    <li><%= link_to "Sign In", new_session_path, class: "buton outlined-inverse" %></li> 
+                    <li><%= link_to "Sign Up", signup_path, class: "buton pri-inverse" %></li> 
                 <% end %>
             </ul>
         </div>
