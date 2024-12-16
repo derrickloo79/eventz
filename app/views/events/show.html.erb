@@ -1,15 +1,15 @@
-<div class="my-8 lg:py-12 max-lg:px-4 space-y-6">
-    <nav class="p-0 m-0" aria-label="Breadcrumb">
-        <ol class="p-0 m-0 inline-flex items-center space-x-1 md:space-x-3">
-            <li class="font-mono">
-                <%= link_to "Events", events_path, class: "text-blue-600 underline-offset-2"%>
+<div class="innerPage">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+        <ol class="">
+            <li class="">
+                <%= link_to "Events", events_path, class: ""%>
             </li>
             <li>
                 <svg class="w-4 h-4 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
                     <path d="M10 3l7 7-7 7-1.414-1.414L12.586 10H1V9h11.586L8.586 4.414z"/>
                 </svg>
             </li>
-            <li aria-current="page" class="font-mono text-gray-500"><%= @event.name%></li>
+            <li aria-current="page" class=""><%= @event.name%></li>
         </ol>
     </nav>
 
@@ -50,7 +50,7 @@
         <div class="eventRight">
             <div class="eventNameDatePrice">
                 <h1><%= @event.name %></h1>
-                <h3><span><%= date_and_time(@event) %> in <%= @event.location %></span></h3>
+                <h4><span><%= date_and_time(@event) %> in <%= @event.location %></span></h4>
                 <div class="eventPrice">
                     <span class="">
                         <%= price(@event) %>
@@ -59,13 +59,13 @@
                 <h4><span><%= pluralize(@event.capacity, "spot") %> &bull; <%= no_of_registrations(@event) %></span></h4>
             </div>
                
-            <div class="eventActions flex flex-col space-y-2 lg:flex-row lg:space-x-2 lg:space-y-0">
+            <div class="eventActions">
                 <div class="lg:w-60 register"><%= register_or_sold_out_desktop(@event) %></div>
-                    <% if current_user_admin? %>
-                            <%= link_to "Edit", edit_event_path(@event), class: "buton outlined lg:w-32 max-sm:hidden" %>
-                            <%= link_to "Delete", @event, class: "buton outlined-danger lg:w-32 max-sm:hidden",
-                                    data: { turbo_method: :delete, turbo_confirm: "Really?!" } %>
-                    <% end %>
+                <% if current_user_admin? %>
+                        <%= link_to "Edit", edit_event_path(@event), class: "buton outlined lg:w-32 max-sm:hidden" %>
+                        <%= link_to "Delete", @event, class: "buton outlined-danger lg:w-32 max-sm:hidden",
+                                data: { turbo_method: :delete, turbo_confirm: "Really?!" } %>
+                <% end %>
             </div>
 
             <div class="eventDescription">
@@ -92,7 +92,7 @@
                 <% end %>
             </div>
 
-            <div class="actions-mobile-only md:hidden flex flex-col space-y-2">
+            <div class="actions-mobile-only">
                 <% if current_user_admin? %>
                     <%= link_to "Edit", edit_event_path(@event), class: "buton outlined lg:w-32" %>
                     <%= link_to "Delete", @event, class: "buton outlined-danger lg:w-32",
@@ -104,14 +104,10 @@
 
 
 </div>
-<div class="absolute px-4 py-6 bg-blue-600 sticky left-0 bottom-0 w-full z-30 flex flex-row space-x-4 justify-center items-center md:hidden">
-    <div class="flex flex-row space-x-0 items-center">
-        <div class="font-mono font-3xl px-2 py-2 rounded-full w-10 text-center"><%= like_or_unlike_button(@event, @like) %></div>
-        <div class="font-mono text-lg text-amber-50">
-            <%= @likers.count %>
-        </div>
+<div class="eventRegisterAndLike-mobile-only">
+    <div class="likeAndCounter">
+        <div class="like"><%= like_or_unlike_button(@event, @like) %></div>
+        <div class="counter"><%= @likers.count %></div>
     </div>
-    <div class="grow">
-        <%= register_or_sold_out_mobile(@event) %>
-    </div>
+    <div class="grow"><%= register_or_sold_out_mobile(@event) %></div>
 </div>

@@ -11,21 +11,35 @@
 }
 
 */
+
 /* Headers */
 h1  {
-  @apply py-2 font-mono font-semibold text-4xl;
+  @apply m-0 py-1 lg:py-2 font-mono font-bold text-slate-800 tracking-tight text-3xl ; /* lg:text-4xl */
 }
+
 h2 {
-  @apply m-0 py-1 lg:py-2 font-mono font-semibold tracking-tight text-2xl lg:text-3xl;
+  @apply m-0 py-1 lg:py-2 font-mono font-bold text-slate-800 tracking-tight text-2xl ; /* lg:text-3xl */
+
+  span {
+    @apply text-slate-600;
+  }
   a {
-    @apply no-underline;
+    @apply text-blue-600 underline-offset-2;
   }
   a:hover{
-    @apply underline underline-offset-2;
+    @apply text-blue-800;
   }
 }
+
 h3 {
-  @apply py-2 font-mono font-medium text-lg lg:text-xl;
+  @apply m-0 py-1 lg:py-2 font-mono font-medium tracking-tight text-xl ; /* lg:text-2xl */
+
+}
+ 
+h4 {
+
+    @apply m-0 py-1 lg:py-2 font-mono text-lg; /* lg:xl */
+  
 }
 
 /* Buttons */
@@ -68,11 +82,19 @@ h3 {
     @apply text-blue-600 bg-blue-100;
   }
 
+  &.pri-inverse-disabled {
+    @apply text-white bg-blue-400 sm:bg-blue-200;
+  }
+
   &.wFull {
     @apply w-full
   }
 }
 
+/* Inner page structure */
+.innerPage {
+  @apply my-16 max-lg:px-4 space-y-6;
+}
 
 /* Header */
 header {
@@ -113,6 +135,26 @@ header {
   @apply top-0 z-10;
 }
 
+/* Breadcrumb */
+nav.breadcrumb {
+  @apply p-0 m-0;
+
+  ol {
+    @apply p-0 m-0 inline-flex items-center space-x-1 md:space-x-3;
+
+    li {
+      @apply font-mono text-gray-500;
+
+        a {
+          @apply text-blue-600 underline-offset-2;
+        }
+        a:hover {
+          @apply text-blue-700;
+        }
+    }
+  }
+}
+
 /* Events Index Page */
 section.eventListCard {
   @apply flex flex-col max-sm:space-y-8 md:flex-row md:space-x-12 items-start pb-8 lg:pb-12 mb-8 lg:mb-12 border-b border-slate-300;
@@ -130,38 +172,7 @@ section.eventListCard {
       @apply flex flex-col space-y-4;
     }
 
-    h1 {
-      @apply m-0 py-1 lg:py-2 font-mono font-semibold text-slate-800 tracking-tight text-3xl lg:text-4xl;
-    }
-
-    h2 {
-      @apply m-0 py-1 lg:py-2 font-mono font-semibold text-slate-800 tracking-tight text-2xl lg:text-3xl;
-
-      span {
-        @apply text-slate-600;
-      }
-
-      a {
-        @apply text-blue-600;
-      }
-      a.hover {
-        @apply text-blue-600 underline-offset-2;
-      }
-    }
-
-    h3 {
-      @apply m-0 py-1 lg:py-2 font-mono font-medium tracking-tight text-xl lg:text-2xl;
-
-      span {
-        @apply text-slate-800;
-      }
-    }
-    h4 {
-      span { @apply m-0 py-1 lg:py-2 font-mono text-lg; }
-    }
     .eventLikes {
-
-
       .eventCount {
         @apply p-2;
       }
@@ -177,7 +188,7 @@ section.eventListCard {
     @apply p-0 m-0 font-mono font-normal text-base text-slate-600;
   }
   .eventActions {
-    
+    @apply  flex flex-col space-y-2 lg:flex-row lg:space-x-2 lg:space-y-0;
 
     .register {
       @apply max-sm:hidden;
@@ -224,6 +235,28 @@ section.eventListCard {
       a {
         @apply text-blue-600 underline-offset-2;
       }
+      a:hover {
+        @apply text-blue-800;
+      }
+    }
+  }
+}
+
+.actions-mobile-only {
+  @apply md:hidden flex flex-col space-y-2;
+}
+
+.eventRegisterAndLike-mobile-only {
+  @apply absolute px-4 py-6 bg-blue-600 sticky left-0 bottom-0 w-full z-30 flex flex-row space-x-4 justify-center items-center md:hidden;
+
+  .likeAndCounter {
+    @apply flex flex-row space-x-0 items-center;
+
+    .like {
+      @apply font-mono text-xl px-2 py-2 rounded-full w-10 text-center;
+    }
+    .counter {
+      @apply font-mono text-lg text-amber-50;
     }
   }
 }

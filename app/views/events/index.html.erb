@@ -1,4 +1,4 @@
-<div class="my-8 lg:py-12 max-lg:px-4">
+<div class="innerPage">
     <% @events.each do | event | %>
         <section class="eventListCard">
             <div class="eventLeft">
@@ -10,7 +10,7 @@
                 <div class="eventNameDatePrice">
                     <div class="md:grow">
                         <h2 class=""><%= link_to event.name, event %></h2>
-                        <h3 class=""><span class=""><%= date_and_time(event) %> in <%= event.location%></span></h3>
+                        <h4 class=""><span class=""><%= date_and_time(event) %> in <%= event.location%></span></h4>
                     </div>
                     <div class="eventPrice">
                         <span class="">
