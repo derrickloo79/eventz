@@ -411,20 +411,20 @@ section.event + section.admin {
 
 // Forms
 
-form.button_to {
+/*form.button_to {
   display: inline;
-}
+}*/
 
 form:not([class="button_to"]) {
-  max-width: 503px;
-  margin-top: 1.5rem;
+  /* max-width: 503px;
+  margin-top: 1.5rem; */
 
-  label {
+  /*label {
     @extend .form-label;
     font-size: 1.1rem;
     font-weight: 600;
     display: block;
-  }
+  } */
 
   input:not([type="checkbox"]):not([type="file"]):not([type="submit"]),
   textarea,
@@ -446,12 +446,12 @@ form:not([class="button_to"]) {
     margin-bottom: 0.75rem;
   }
 
-  input[type="submit"] {
+  /* input[type="submit"] {
     @extend .btn, .btn-primary;
     display: block;
     width: 100%;
     margin-top: 1.5rem;
-  }
+  } */
 
   input[type="checkbox"] {
     @extend .form-check-input;

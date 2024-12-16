@@ -274,6 +274,28 @@ section.eventListCard {
   }
 }
 
+/* Forms */
+form.button_to {
+  display: inline;
+}
+
+form:not([class="button_to"]) {
+  @apply max-w-xl mt-2;
+
+  label {
+    @apply font-mono font-semibold text-lg text-slate-500 tracking-wide mb-1;
+    display: block;
+  }
+
+  input[type="submit"] {
+    @apply font-mono font-medium text-base text-center px-3 py-2 no-underline rounded-full text-white bg-blue-600 hover:bg-blue-700;
+    display: block;
+    width: 100%;
+    margin-top: 1.5rem;
+  }
+}
+
+
 /* Footer */
 footer {
   @apply py-10 bg-blue-950 flex flex-col gap-2 items-center;
