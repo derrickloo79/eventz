@@ -28,7 +28,7 @@
             </div>
             <div class="likesAndCats-desktop-only">
                 <% if @likers.present? %>
-                    <h4 class="">Liked by</h4>
+                    <header class="">Liked by</header>
                     <ul>
                         <% @likers.each do |user| %>
                             <li><%= link_to user.name, user %></li>
@@ -37,7 +37,7 @@
                 <% end %>
 
                 <% if @categories.present? %>
-                    <h4>Categories</h4>
+                    <header>Categories</header>
                     <ul>
                         <% @categories.each do |c| %>
                             <li><%= link_to c.name, c %></li>
@@ -49,14 +49,14 @@
 
         <div class="eventRight">
             <div class="eventNameDatePrice">
-                <h1><%= @event.name %></h1>
-                <h4><span><%= date_and_time(@event) %> in <%= @event.location %></span></h4>
+                <div><h1><%= @event.name %></h1></div>
+                <div><h3><span><%= date_and_time(@event) %> in <%= @event.location %></span></h3></div>
                 <div class="eventPrice">
                     <span class="">
                         <%= price(@event) %>
                     </span>
                 </div>
-                <h4><span><%= pluralize(@event.capacity, "spot") %> &bull; <%= no_of_registrations(@event) %></span></h4>
+                <div><h4><span><%= pluralize(@event.capacity, "spot") %> &bull; <%= no_of_registrations(@event) %></span></h4></div>
             </div>
                
             <div class="eventActions">
@@ -74,7 +74,7 @@
 
             <div class="likesAndCats-mobile-only">
                 <% if @likers.present? %>
-                    <h4 class="">Liked by</h4>
+                    <header class="">Liked by</header>
                     <ul>
                         <% @likers.each do |user| %>
                             <li><%= link_to user.name, user %></li>
@@ -83,7 +83,7 @@
                 <% end %>
 
                 <% if @categories.present? %>
-                    <h4>Categories</h4>
+                    <header>Categories</header>
                     <ul>
                         <% @categories.each do |c| %>
                             <li><%= link_to c.name, c %></li>
